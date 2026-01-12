@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>개인정보 입력</title>
+    <link rel="stylesheet" href="../../static/css/common.css">
+</head>
+<body>
+<div class="container">
+    <div class="progress-bar">
+        <div class="progress-step active"></div>
+        <div class="progress-step active"></div>
+        <div class="progress-step"></div>
+        <div class="progress-step"></div>
+    </div>
+
+    <div class="header">
+        <h1>반가워요! 👋</h1>
+        <p>당신에 대해 알려주세요</p>
+    </div>
+
+    <form id="profileForm">
+        <div class="form-group">
+            <label class="form-label">
+                닉네임<span class="required">*</span>
+            </label>
+            <input
+                    type="text"
+                    class="form-input"
+                    id="nickname"
+                    placeholder="닉네임을 입력해주세요"
+                    maxlength="12"
+                    required
+            >
+            <div class="helper-text">2-12자 이내로 입력해주세요</div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">성별</label>
+            <div class="button-group">
+                <button type="button" class="option-btn" data-value="male" onclick="selectGender(this)">남성</button>
+                <button type="button" class="option-btn" data-value="female" onclick="selectGender(this)">여성</button>
+                <button type="button" class="option-btn" data-value="none" onclick="selectGender(this)">선택안함</button>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">나이대</label>
+            <div class="button-group">
+                <button type="button" class="option-btn" data-value="10s" onclick="selectAge(this)">10대</button>
+                <button type="button" class="option-btn" data-value="20s" onclick="selectAge(this)">20대</button>
+                <button type="button" class="option-btn" data-value="30s" onclick="selectAge(this)">30대</button>
+                <button type="button" class="option-btn" data-value="40s" onclick="selectAge(this)">40대</button>
+                <button type="button" class="option-btn" data-value="50s" onclick="selectAge(this)">50대</button>
+                <button type="button" class="option-btn" data-value="60+" onclick="selectAge(this)">60대 이상</button>
+                <button type="button" class="option-btn" data-value="none" onclick="selectAge(this)">선택안함</button>
+            </div>
+        </div>
+
+        <button type="submit" class="next-btn" id="nextBtn" disabled>다음</button>
+    </form>
+</div>
+
+<script>
+        let selectedGender = null;
+        let selectedAge = null;
+
+        const nicknameInput = document.getElementById('nickname');
+        const nextBtn = document.getElementById('nextBtn');
+
+        nicknameInput.addEventListener('input', checkFormValid);
+
+        function selectGender(btn) {
+            document.querySelectorAll('[data-value="male"], [data-value="female"], [data-value="none"]').forEach(b => {
+                b.classList.remove('selected');
+            });
+            btn.classList.add('selected');
+            selectedGender = btn.dataset.value;
+            checkFormValid();
+        }
+
+        function selectAge(btn) {
+            document.querySelectorAll('[data-value="10s"], [data-value="20s"], [data-value="30s"], [data-value="40s"], [data-value="50+"]').forEach(b => {
+                b.classList.remove('selected');
+            });
+            btn.classList.add('selected');
+            selectedAge = btn.dataset.value;
+            checkFormValid();
+        }
+
+        function checkFormValid() {
+            const nickname = nicknameInput.value.trim();
+            if (nickname.length >= 2) {
+                nextBtn.disabled = false;
+            } else {
+                nextBtn.disabled = true;
+            }
+        }
+
+        document.getElementById('profileForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const nickname = nicknameInput.value.trim();
+
+            if (nickname.length < 2) {
+                alert('닉네임은 2자 이상 입력해주세요');
+                return;
+            }
+
+            console.log('Profile:', { nickname, gender: selectedGender, age: selectedAge });
+            window.location.href = 'signup-sport.html';
+        });
+    </script>
+</body>
+</html>

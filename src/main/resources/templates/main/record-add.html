@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>기록 추가하기</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            background: #f5f5f7;
+            padding-bottom: 80px;
+        }
+
+        .header {
+            background: white;
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .back-btn {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        .header-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-section {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 16px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .section-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .required {
+            color: #e53e3e;
+        }
+
+        .form-input, .form-select, .form-textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 15px;
+            transition: border-color 0.2s ease;
+        }
+
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            outline: none;
+            border-color: #FF6600;
+        }
+
+        .form-textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .button-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+            gap: 8px;
+        }
+
+        .option-btn {
+            padding: 12px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            background: white;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .option-btn:hover {
+            border-color: #FF6600;
+        }
+
+        .option-btn.selected {
+            background: #FF6600;
+            border-color: #FF6600;
+            color: white;
+        }
+
+        .mood-buttons {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+        }
+
+        .mood-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            background: white;
+            font-size: 28px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .mood-btn span {
+            font-size: 11px;
+            color: #666;
+        }
+
+        .mood-btn.selected {
+            border-color: #FF6600;
+            background: #fff8f0;
+        }
+
+        .score-input-group {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .score-input {
+            flex: 1;
+            text-align: center;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .vs-text {
+            font-size: 16px;
+            font-weight: 600;
+            color: #999;
+        }
+
+        .seat-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .photo-upload {
+            border: 2px dashed #e0e0e0;
+            border-radius: 8px;
+            padding: 40px 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .photo-upload:hover {
+            border-color: #FF6600;
+            background: #fff8f0;
+        }
+
+        .photo-upload-icon {
+            font-size: 48px;
+            margin-bottom: 8px;
+        }
+
+        .photo-upload-text {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #FF6600, #ff8533);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(255, 102, 0, 0.3);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(255, 102, 0, 0.4);
+        }
+
+        .helper-text {
+            font-size: 12px;
+            color: #999;
+            margin-top: 6px;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <button class="back-btn" onclick="goBack()">←</button>
+    <div class="header-title">직관기록 추가하기</div>
+</div>
+
+<div class="container">
+    <form id="recordForm">
+        <!-- 기본 정보 -->
+        <div class="form-section">
+            <div class="section-title">📋 기본 정보</div>
+
+            <div class="form-group">
+                <label class="form-label">경기 종류 <span class="required">*</span></label>
+                <div class="button-group">
+                    <button type="button" class="option-btn" data-value="exhibition">시범</button>
+                    <button type="button" class="option-btn selected" data-value="regular">정규</button>
+                    <button type="button" class="option-btn" data-value="post">포스트</button>
+                    <button type="button" class="option-btn" data-value="other">기타</button>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">날짜 <span class="required">*</span></label>
+                <input type="date" class="form-input" value="2025-04-05" required>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">시간 <span class="required">*</span></label>
+                <input type="time" class="form-input" value="18:30" required>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">기분 <span class="required">*</span></label>
+                <div class="mood-buttons">
+                    <button type="button" class="mood-btn">
+                        🤩
+                        <span>극희</span>
+                    </button>
+                    <button type="button" class="mood-btn selected">
+                        😊
+                        <span>희</span>
+                    </button>
+                    <button type="button" class="mood-btn">
+                        😐
+                        <span>중</span>
+                    </button>
+                    <button type="button" class="mood-btn">
+                        😟
+                        <span>소노</span>
+                    </button>
+                    <button type="button" class="mood-btn">
+                        😡
+                        <span>중노</span>
+                    </button>
+                    <button type="button" class="mood-btn">
+                        🤬
+                        <span>극대노</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 경기 정보 -->
+        <div class="form-section">
+            <div class="section-title">⚾ 경기 정보</div>
+
+            <div class="form-group">
+                <label class="form-label">구장 <span class="required">*</span></label>
+                <select class="form-select" required>
+                    <option value="">구장을 선택하세요</option>
+                    <option value="daejeon" selected>대전 한화생명 이글스파크</option>
+                    <option value="jamsil">서울 잠실야구장</option>
+                    <option value="gocheok">서울 고척스카이돔</option>
+                    <option value="suwon">수원 KT위즈파크</option>
+                    <option value="incheon">인천 SSG랜더스필드</option>
+                    <option value="changwon">창원 NC파크</option>
+                    <option value="gwangju">광주 기아챔피언스필드</option>
+                    <option value="busan">부산 사직야구장</option>
+                    <option value="daegu">대구 삼성라이온즈파크</option>
+                    <option value="other">기타 (직접입력)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">홈/원정 <span class="required">*</span></label>
+                <div class="button-group">
+                    <button type="button" class="option-btn selected" data-value="home">홈</button>
+                    <button type="button" class="option-btn" data-value="away">원정</button>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">상대팀 <span class="required">*</span></label>
+                <select class="form-select" required>
+                    <option value="">상대팀을 선택하세요</option>
+                    <option value="doosan">두산 베어스</option>
+                    <option value="lg">LG 트윈스</option>
+                    <option value="kt">KT 위즈</option>
+                    <option value="ssg">SSG 랜더스</option>
+                    <option value="nc">NC 다이노스</option>
+                    <option value="kiwoom">키움 히어로즈</option>
+                    <option value="kia">KIA 타이거즈</option>
+                    <option value="lotte">롯데 자이언츠</option>
+                    <option value="samsung" selected>삼성 라이온즈</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">점수 <span class="required">*</span></label>
+                <div class="score-input-group">
+                    <input type="number" class="form-input score-input" placeholder="우리팀" value="5" min="0" required>
+                    <span class="vs-text">:</span>
+                    <input type="number" class="form-input score-input" placeholder="상대팀" value="3" min="0" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">경기 결과 <span class="required">*</span></label>
+                <div class="button-group">
+                    <button type="button" class="option-btn selected" data-value="win">승</button>
+                    <button type="button" class="option-btn" data-value="lose">패</button>
+                    <button type="button" class="option-btn" data-value="draw">무</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 좌석 정보 -->
+        <div class="form-section">
+            <div class="section-title">🎫 좌석 정보</div>
+
+            <div class="form-group">
+                <label class="form-label">좌석 종류 <span class="required">*</span></label>
+                <select class="form-select" required>
+                    <option value="">좌석을 선택하세요</option>
+                    <option value="1st-base" selected>1루 내야지정석</option>
+                    <option value="3rd-base">3루 내야지정석</option>
+                    <option value="outfield-free">외야자유석</option>
+                    <option value="table">테이블석</option>
+                    <option value="vip">VIP석</option>
+                    <option value="sky">스카이박스</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">좌석 위치</label>
+                <input type="text" class="form-input" placeholder="예: 105블럭 13열 09" value="105블럭 13열 09">
+                <div class="helper-text">구역, 열, 번호 등을 자유롭게 입력하세요</div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">좌석 메모</label>
+                <textarea class="form-textarea" placeholder="좌석에 대한 메모를 남겨보세요"></textarea>
+            </div>
+        </div>
+
+        <!-- 추가 정보 -->
+        <div class="form-section">
+            <div class="section-title">📝 추가 정보</div>
+
+            <div class="form-group">
+                <label class="form-label">사진 첨부</label>
+                <div class="photo-upload" onclick="document.getElementById('photoInput').click()">
+                    <div class="photo-upload-icon">📸</div>
+                    <div class="photo-upload-text">사진을 추가해보세요</div>
+                    <div class="helper-text">여러 장 선택 가능</div>
+                </div>
+                <input type="file" id="photoInput" accept="image/*" multiple style="display: none;">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">일행</label>
+                <select class="form-select" multiple>
+                    <option value="ryujiin" selected>유지인</option>
+                    <option value="oheunjin" selected>오은진</option>
+                    <option value="choimihyeon">최미현</option>
+                    <option value="kimjihee">김지희</option>
+                </select>
+                <div class="helper-text">Ctrl/Cmd 키를 누르고 여러 명 선택 가능</div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">자유 메모</label>
+                <textarea class="form-textarea" placeholder="이날의 특별한 순간을 기록해보세요"></textarea>
+            </div>
+        </div>
+
+        <button type="submit" class="submit-btn">저장하기</button>
+    </form>
+</div>
+
+<script>
+        // 옵션 버튼 토글
+        document.querySelectorAll('.option-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const group = this.closest('.button-group');
+                group.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+                this.classList.add('selected');
+            });
+        });
+
+        // 기분 버튼 토글
+        document.querySelectorAll('.mood-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.mood-btn').forEach(b => b.classList.remove('selected'));
+                this.classList.add('selected');
+            });
+        });
+
+        // 폼 제출
+        document.getElementById('recordForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('직관기록이 저장되었습니다! 🎉');
+            window.location.href = 'record-list.html';
+        });
+
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>

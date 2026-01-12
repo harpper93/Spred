@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>종목 선택</title>
+    <link rel="stylesheet" href="../../static/css/common.css">
+    <link rel="stylesheet" href="../../static/css/sport.css">
+</head>
+<body>
+<div class="container">
+    <div class="progress-bar">
+        <div class="progress-step active"></div>
+        <div class="progress-step active"></div>
+        <div class="progress-step active"></div>
+        <div class="progress-step"></div>
+    </div>
+
+    <div class="header">
+        <h1>어떤 종목을 기록할까요?</h1>
+        <p>관심있는 스포츠를 선택해주세요</p>
+    </div>
+
+    <div class="sport-options">
+        <button class="sport-btn" data-sport="baseball" onclick="selectSport(this)">
+            <div class="sport-icon">⚾</div>
+            <div class="sport-info">
+                <div class="sport-name">야구</div>
+                <div class="sport-desc">직관 기록을 남겨보세요</div>
+            </div>
+        </button>
+
+        <button class="sport-btn" data-sport="other" onclick="selectSport(this)">
+            <div class="sport-icon">🏅</div>
+            <div class="sport-info">
+                <div class="sport-name">기타</div>
+                <div class="sport-desc">다른 스포츠 종목</div>
+            </div>
+        </button>
+    </div>
+
+    <div class="info-box">
+        <p>💡 추후 다양한 종목이 추가될 예정이에요!</p>
+    </div>
+
+    <button class="next-btn" id="nextBtn" disabled>다음</button>
+</div>
+
+<script>
+        let selectedSport = null;
+        const nextBtn = document.getElementById('nextBtn');
+
+        function selectSport(btn) {
+            document.querySelectorAll('.sport-btn').forEach(b => {
+                b.classList.remove('selected');
+            });
+
+            btn.classList.add('selected');
+            selectedSport = btn.dataset.sport;
+            nextBtn.disabled = false;
+        }
+
+        nextBtn.addEventListener('click', function() {
+            if (!selectedSport) {
+                alert('종목을 선택해주세요');
+                return;
+            }
+
+            console.log('Selected sport:', selectedSport);
+
+            if (selectedSport === 'baseball') {
+                window.location.href = 'signup-team.html';
+            } else {
+                // 기타 종목은 팀 선택 생략
+                alert('회원가입이 완료되었습니다!');
+                window.location.href = '../main/dashboard.html';
+            }
+        });
+    </script>
+</body>
+</html>

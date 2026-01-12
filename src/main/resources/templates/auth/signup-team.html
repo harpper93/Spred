@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>팀 선택</title>
+    <link rel="stylesheet" href="../../static/css/common.css">
+    <link rel="stylesheet" href="../../static/css/team.css">
+</head>
+<body>
+<div class="container">
+    <div class="progress-bar">
+        <div class="progress-step active"></div>
+        <div class="progress-step active"></div>
+        <div class="progress-step active"></div>
+        <div class="progress-step active"></div>
+    </div>
+
+    <div class="header">
+        <h1>우리 팀을 선택하세요 ⚾</h1>
+        <p>응원하는 구단을 선택해주세요</p>
+    </div>
+
+    <div class="team-grid">
+        <button class="team-btn" data-team="hanwha" onclick="selectTeam(this)">
+            <div class="team-icon">🦅</div>
+            <div class="team-name">한화<br>이글스</div>
+        </button>
+
+        <button class="team-btn" data-team="doosan" onclick="selectTeam(this)">
+            <div class="team-icon">🐻</div>
+            <div class="team-name">두산<br>베어스</div>
+        </button>
+
+        <button class="team-btn" data-team="lg" onclick="selectTeam(this)">
+            <div class="team-icon">🦁</div>
+            <div class="team-name">LG<br>트윈스</div>
+        </button>
+
+        <button class="team-btn" data-team="kt" onclick="selectTeam(this)">
+            <div class="team-icon">🦊</div>
+            <div class="team-name">KT<br>위즈</div>
+        </button>
+
+        <button class="team-btn" data-team="ssg" onclick="selectTeam(this)">
+            <div class="team-icon">🦁</div>
+            <div class="team-name">SSG<br>랜더스</div>
+        </button>
+
+        <button class="team-btn" data-team="nc" onclick="selectTeam(this)">
+            <div class="team-icon">🦅</div>
+            <div class="team-name">NC<br>다이노스</div>
+        </button>
+
+        <button class="team-btn" data-team="kiwoom" onclick="selectTeam(this)">
+            <div class="team-icon">🐻</div>
+            <div class="team-name">키움<br>히어로즈</div>
+        </button>
+
+        <button class="team-btn" data-team="kia" onclick="selectTeam(this)">
+            <div class="team-icon">🐯</div>
+            <div class="team-name">KIA<br>타이거즈</div>
+        </button>
+
+        <button class="team-btn" data-team="lotte" onclick="selectTeam(this)">
+            <div class="team-icon">🦭</div>
+            <div class="team-name">롯데<br>자이언츠</div>
+        </button>
+
+        <button class="team-btn" data-team="samsung" onclick="selectTeam(this)">
+            <div class="team-icon">🦁</div>
+            <div class="team-name">삼성<br>라이온즈</div>
+        </button>
+
+        <button class="team-btn" data-team="none" onclick="selectTeam(this)" style="grid-column: 1 / -1;">
+            <div class="team-icon">⚪</div>
+            <div class="team-name">없음</div>
+        </button>
+    </div>
+
+    <button class="save-btn" id="saveBtn" disabled>저장</button>
+</div>
+
+<script>
+        let selectedTeam = null;
+        const saveBtn = document.getElementById('saveBtn');
+
+        function selectTeam(btn) {
+            document.querySelectorAll('.team-btn').forEach(b => {
+                b.classList.remove('selected');
+            });
+
+            btn.classList.add('selected');
+            selectedTeam = btn.dataset.team;
+            saveBtn.disabled = false;
+        }
+
+        saveBtn.addEventListener('click', function() {
+            if (!selectedTeam) {
+                alert('팀을 선택해주세요');
+                return;
+            }
+
+            console.log('Selected team:', selectedTeam);
+            alert('회원가입이 완료되었습니다! 🎉');
+            // 실제로는 대시보드나 메인 화면으로 이동
+            window.location.href = '../main/dashboard.html';
+        });
+    </script>
+</body>
+</html>
