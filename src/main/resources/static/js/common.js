@@ -26,19 +26,8 @@ function modeChange(teamName){
         document.body.className = teamName;
     }
 }
-function trackScroll(){
+function setRequiredDot(){
 
 }
 window.addEventListener('load', activeSpred);
 window.addEventListener('resize', activeSpred);
-window.addEventListener('scroll', function(e){
-    let target = e.target;
-
-    if(target === document){
-        console.log("document is scrolling");
-    } else {
-        console.log('is scrolling', target);
-        console.log('scrolling is Id', target.id);
-        console.log('scrolling is class', target.class);
-    }
-}, true);

@@ -1,3 +1,4 @@
+<!-- ########################### [start]_헤더 : 선언부 영역 ########################### -->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -6,45 +7,61 @@
     <title>종목 선택</title>
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <link rel="stylesheet" href="../../static/css/content.css">
+    <script src="../../static/js/common.js"></script>
 </head>
 <body>
+<!-- ########################### [end]_헤더 : 선언부 영역 ########################### -->
+
+<!-- ########################### [start]_컨테이너 영역 : 컨텐츠 영역 ########################### -->
 <div class="container">
     <div class="progress-bar">
-        <div class="progress-step active"></div>
-        <div class="progress-step active"></div>
+        <div class="progress-step"></div>
+        <div class="progress-step"></div>
         <div class="progress-step active"></div>
         <div class="progress-step"></div>
     </div>
 
     <div class="header">
-        <h1>어떤 종목을 기록할까요?</h1>
+        <h1 class="tit-d02">어떤 종목을 기록할까요?</h1>
         <p>관심있는 스포츠를 선택해주세요</p>
     </div>
 
-    <div class="sport-options">
-        <button class="sport-btn" data-sport="baseball" onclick="selectSport(this)">
-            <div class="sport-icon">⚾</div>
-            <div class="sport-info">
-                <div class="sport-name">야구</div>
-                <div class="sport-desc">직관 기록을 남겨보세요</div>
-            </div>
-        </button>
-
-        <button class="sport-btn" data-sport="other" onclick="selectSport(this)">
-            <div class="sport-icon">🏅</div>
-            <div class="sport-info">
-                <div class="sport-name">기타</div>
-                <div class="sport-desc">다른 스포츠 종목</div>
-            </div>
-        </button>
+    <div class="form-group" role="group">
+        <div class="form-item">
+            <label for="baseball">
+                <i aria-hidden="true"></i>
+                <div class="txt-wrap">
+                    <span class="tit">야구</span>
+                    <span class="desc">직관 기록을 남겨보세요</span>
+                </div>
+                <input type="radio" id="baseball" name="sports" value="baseball">
+            </label>
+        </div>
+        <div class="form-item">
+            <label for="other">
+                <i aria-hidden="true"></i>
+                <div class="txt-wrap">
+                    <span class="tit">기타</span>
+                    <span class="desc">다른 스포츠 종목</span>
+                </div>
+                <input type="radio" id="other" name="sports" value="other">
+            </label>
+        </div>
     </div>
 
     <div class="info-box">
-        <p>💡 추후 다양한 종목이 추가될 예정이에요!</p>
+        <p>추후 다양한 종목이 추가될 예정이에요!</p>
     </div>
+    <!-- ########################### [end]_컨테이너 영역 : 컨텐츠 영역 ########################### -->
 
-    <button class="next-btn" id="nextBtn" disabled>다음</button>
+    <!-- ########################### [start]_푸터 : 하단버튼 영역 ########################### -->
+    <footer class="footer">
+        <button class="btn-comm-prime" id="nextBtn" disabled>
+            <span>다음</span>
+        </button>
+    </footer>
 </div>
+<!-- ########################### [end]_푸터 : 하단버튼 영역 ########################### -->
 
 <script>
         let selectedSport = null;

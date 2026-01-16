@@ -1,5 +1,10 @@
 @charset "UTF-8";
-@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");/*폰트*/
+@font-face {
+    font-family:"Pretendard Variable";
+    font-weight:45 920;
+    font-style:normal;
+    src:url("./../fonts/PretendardVariable.woff2") format("woff2");
+}
 /* Reset & Base Styles */
 /* ************************* reset ************************* */
 html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockquote, pre,a, abbr, acronym, address, big, cite, code,del, dfn, em, img, ins, kbd, q, s, samp,small, strike, strong, sub, sup, tt, var,b, u, i, center,dl, dt, dd, ol, ul, li,fieldset, form, label, legend,table, caption, tbody, tfoot, thead, tr, th, td,article, aside, canvas, details, embed,figure, figcaption, footer, header, hgroup,menu, nav, output, ruby, section, summary,time, mark, audio, video {margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;}
@@ -7,25 +12,34 @@ html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockqu
 article, aside, details, figcaption, figure,footer, header, hgroup, menu, nav, section {display:block;}
 html{font-size:62.5%;}
 body {line-height:1;}
+body, button, input, textarea, select, table{font-family:"Pretendard Variable", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;outline:none;}
 ol, ul {list-style:none;}
 blockquote, q {quotes:none;}
 blockquote:before, blockquote:after,q:before, q:after {content:'';content:none;}
 table {border-collapse:collapse;border-spacing:0;}
-*,
-*::before,
-*::after {box-sizing:border-box;}
+input{border:none;}
+*, *::before, *::after {box-sizing:border-box;}
 /* ************************* 변수 ************************* */
 :root{
-    /* color */
+    /* color - bg */
     --bg-color-default:#E2E8F0;
     --bg-color-prime:#667eea;
+    /* color - font */
     --font-color-prime:#667eea;
+    /* color - border */
     --border-color-default:#e0e0e0;
     --border-color-prime:#667eea;
+    /* shadow */
     --box-shadow-15:0 4px 12px rgba(0,0,0,0.15);
+    /* color - replace */
     --replace-333333:#1E293B;
     --replace-666666:#606C7E;
     --replace-999999:#94A3B8;
+    --replace-e0e0e0:#E2E8F0;
+    --replace-cccccc:#CBD5E1;
+    --replace-757575:#718096;
+    /* color - point */
+    --point-red:#F56565;
     /* 레이아웃 */
     --layout-btm-height:0px;
 }
