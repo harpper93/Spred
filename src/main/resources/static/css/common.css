@@ -16,10 +16,18 @@ table {border-collapse:collapse;border-spacing:0;}
 *::after {box-sizing:border-box;}
 /* ************************* 변수 ************************* */
 :root{
+    /* color */
+    --bg-color-default:#E2E8F0;
     --bg-color-prime:#667eea;
     --font-color-prime:#667eea;
+    --border-color-default:#e0e0e0;
     --border-color-prime:#667eea;
     --box-shadow-15:0 4px 12px rgba(0,0,0,0.15);
+    --replace-333333:#1E293B;
+    --replace-666666:#606C7E;
+    --replace-999999:#94A3B8;
+    /* 레이아웃 */
+    --layout-btm-height:0px;
 }
 body.hanhwa {
     --bg-color-prime:#FF6600;
@@ -61,3 +69,7 @@ body.samsung {
     --bg-color-prime:#074CA1;
     --border-color-prime:#074CA1;
 }
+/* ************************* 기능 ************************* */
+.hide{display:none !important;}
+.bold{font-weight:700 !important;}
+.semibold{font-weight:600 !important;}

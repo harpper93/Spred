@@ -1,3 +1,4 @@
+<!-- ########################### [start]_헤더 : 선언부 영역 ########################### -->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -8,16 +9,19 @@
     <link rel="stylesheet" href="../../static/css/content.css">
 </head>
 <body>
+<!-- ########################### [end]_헤더 : 선언부 영역 ########################### -->
+
+<!-- ########################### [start]_컨테이너 영역 : 컨텐츠 영역 ########################### -->
 <div class="container">
     <div class="progress-bar">
-        <div class="progress-step active"></div>
+        <div class="progress-step"></div>
         <div class="progress-step active"></div>
         <div class="progress-step"></div>
         <div class="progress-step"></div>
     </div>
 
     <div class="header">
-        <h1>반가워요! 👋</h1>
+        <h1 class="tit-d02">반가워요!<i class="ico-greeting" aria-hidden="true"></i></h1>
         <p>당신에 대해 알려주세요</p>
     </div>
 
@@ -26,14 +30,7 @@
             <label class="form-label">
                 닉네임<span class="required">*</span>
             </label>
-            <input
-                    type="text"
-                    class="form-input"
-                    id="nickname"
-                    placeholder="닉네임을 입력해주세요"
-                    maxlength="12"
-                    required
-            >
+            <input type="text" class="form-input" id="nickname" placeholder="닉네임을 입력해주세요" maxlength="12" required>
             <div class="helper-text">2-12자 이내로 입력해주세요</div>
         </div>
 
@@ -58,10 +55,17 @@
                 <button type="button" class="option-btn" data-value="none" onclick="selectAge(this)">선택안함</button>
             </div>
         </div>
-
-        <button type="submit" class="next-btn" id="nextBtn" disabled>다음</button>
     </form>
+<!-- ########################### [end]_컨테이너 영역 : 컨텐츠 영역 ########################### -->
+
+<!-- ########################### [start]_푸터 : 하단버튼 영역 ########################### -->
+    <footer class="footer">
+        <button class="btn-comm-prime" id="nextBtn" disabled>
+            <span>다음</span>
+        </button>
+    </footer>
 </div>
+<!-- ########################### [end]_푸터 : 하단버튼 영역 ########################### -->
 
 <script>
         let selectedGender = null;
