@@ -1,11 +1,21 @@
 @charset "UTF-8";
 @import url(./layout.css);
 
-/* icons */
+/* icons - icon */
 .ico-greeting{background:url("./../images/icon/color/icon_hello.svg");}
 .ico-baseball{background:url("./../images/icon/color/icon_baseball.svg");}
 .ico-medal{background:url("./../images/icon/color/icon_medal.svg");}
-
+/* icons - team */
+.ico-hanhwa{background:url(./../images/icon/team/icon_hanhwa.svg);}
+.ico-doosan{background:url(./../images/icon/team/icon_doosan.svg);}
+.ico-lg{background:url(./../images/icon/team/icon_lg.svg);}
+.ico-kt{background:url(./../images/icon/team/icon_kt.svg);}
+.ico-ssg{background:url(./../images/icon/team/icon_ssg.svg);}
+.ico-nc{background:url(./../images/icon/team/icon_nc.svg);}
+.ico-kiwoom{background:url(./../images/icon/team/icon_kiwoom.svg);}
+.ico-kia{background:url(./../images/icon/team/icon_kia.svg);}
+.ico-lotte{background:url(./../images/icon/team/icon_lotte.svg);}
+.ico-samsung{background:url(./../images/icon/team/icon_samsung.svg);}
 /* Header */
 [class^=tit-d0]{display:-webkit-flex;display:flex;justify-content:center;align-items:center;gap:8px;color:var(--replace-333333);margin-bottom:12px;font-weight:700;}
 [class^=tit-d0] > [class^=ico-]{display:block;width:24px;height:24px;background-position:center;background-size:contain;background-repeat:no-repeat}
@@ -16,7 +26,7 @@
 .header.center{text-align:center;margin-bottom:40px;}
 .progress-bar + .header {padding:0;}
 /* content */
-.steps{margin-bottom:16px;width:100%;}
+.steps{width:100%;}
 .step-card{display:-webkit-flex;display:flex;flex-direction:column;gap:16px;width:100%;height:fit-content;}
 .step-card .step-content{display:-webkit-flex;display:flex;justify-content:flex-start;align-items:center;width:100%;padding:24px 16px;min-height:115px;border:2px solid var(--border-color-prime);border-radius:16px;}
 .step-card .step-content > i{flex:none;display:block;width:40px;height:40px;background-position:center;background-size:contain;background-repeat:no-repeat}
@@ -28,7 +38,7 @@
 .step-card .step-content dl .step-title + .step-desc{margin-top:5px;color:var(--replace-666666);font:400 1.4rem/1.96rem "Pretendard Variable";}
 .step-card .step-content > i + dl {margin-left:16px;}
 
-.info-box{display:-webkit-flex;display:flex;justify-content:center;align-items:center;width:100%;padding:10px 34px;min-height:63px;background-color:#F8F9FF;border:1px solid #E0E7FF;border-radius:12px;}
+.info-box{display:-webkit-flex;display:flex;justify-content:center;align-items:center;width:100%;margin-top:24px;padding:10px 34px;min-height:63px;background-color:#F8F9FF;border:1px solid #E0E7FF;border-radius:12px;}
 .info-box > p{position:relative;display:-webkit-flex;display:flex;justify-content:flex-start;align-items:flex-start;font:500 1.2rem/2.24rem "Pretendard Variable";color:#667EEA;text-align:center;word-break:break-all;}
 .info-box > p:before{content:'';display:block;width:16px;height:17px;margin:0.3rem 0.3rem 0 0;background:url("./../images/icon/color/icon_bulb.svg") center/contain no-repeat;}
 /* button */
@@ -41,7 +51,7 @@
 [class^=btn-comm-] + .skip-link{margin-top:16px;}
 [class^=btn-comm-] > .icon {display:block;width:20px;height:20px;}
 [class^=btn-comm-] > .icon + span {margin-left:12px;}
-.btn-comm-prime{display:-webkit-flex;display:flex;justify-content:center;align-items:center;width:100%;padding:20px 0;background:linear-gradient(135deg, #667eea 0%, #764ba2 100%);border:none;border-radius:12px;box-shadow:4px 4px 10px 0px rgba(0,0,0,0.25)}
+.btn-comm-prime{display:-webkit-flex;display:flex;justify-content:center;align-items:center;width:100%;padding:20px 0;background:linear-gradient(135deg, #667eea 0%, #764ba2 100%);border:none;border-radius:12px;box-shadow:var(--boxshadow-default);}
 .btn-comm-prime span{font:700 1.7rem/2rem "Pretendard Variable";color:#fff;}
 .btn-comm-line{border:1px solid var(--border-color-default);}
 .btn-comm-default.kakao{background-color:#FEE500;}
@@ -55,7 +65,7 @@
 .back-link > a > span:after{border-bottom:1px solid var(--border-color-prime);}
 /* btn-wrap */
 .btn-wrap{display:-webkit-flex;display:flex;flex-direction:column;align-items:center;gap:16px;width:100%;}
-/* form-radio */
+/* form-group */
 .form-group{display:-webkit-flex;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;width:100%;height:fit-content;}
 .form-group + .form-group{margin-top:24px;}
 .form-group .form-tit{display:block;width:100%;font:600 1.5rem/1.5rem "Pretendard Variable";color:var(--replace-333333);}
@@ -72,9 +82,19 @@
 .form-group > .group-wrap .form-item:nth-of-type(odd):last-of-type{width:100%;}
 .form-group .form-item > .rd-btn-txt{display:block;width:100%;color:var(--replace-757575);font:400 1.5rem/1.8rem "Pretendard Variable";text-align:center;}
 .form-group > .group-wrap .form-item:has(input[type="radio"]:checked) > .rd-btn-txt{color:#fff;}
-.form-group .form-item > input[type="radio"]{position:absolute;left:0;top:0;right:0;width:100%;height:100%;padding:0;margin:0;border:0;overflow:hidden;clip:rect(0,0,0,0);outline:1px solid red;}
+.form-group .form-item > input[type="radio"],
+.form-group .radio-btn label > input[type="radio"]{position:absolute;left:0;top:0;right:0;width:100%;height:100%;padding:0;margin:0;border:0;overflow:hidden;clip:rect(0,0,0,0);outline:1px solid red;}
 .form-msg{margin:10px 0 0 8px;font:400 1.3rem/1.3rem "Pretendard Variable";color:var(--replace-999999);}
-
+.form-group .radio-btn{position:relative;display:block;width:100%;}
+.form-group .radio-btn + .radio-btn{margin-top:16px;}
+.form-group .radio-btn label{display:-webkit-flex;display:flex;justify-content:flex-start;align-items:center;width:100%;padding:20px 24px;background-color:#fff;border:2px solid var(--replace-e0e0e0);border-radius:16px;}
+.form-group .radio-btn label:has(input[type="radio"]:checked){background-color:var(--bg-color-prime);border-color:var(--border-color-prime);box-shadow:var(--boxshadow-default);}
+.form-group .radio-btn label > .txt-wrap{display:-webkit-flex;display:flex;flex-direction:column;}
+.form-group .radio-btn label > i + .txt-wrap{margin-left:16px;}
+.form-group .radio-btn label > .txt-wrap .tit{font:500 1.8rem/2.4rem "Pretendard Variable";color:var(--replace-000000);}
+.form-group .radio-btn label > .txt-wrap .desc{font:400 1.3rem/1.7rem "Pretendard Variable";color:var(--replace-999999);}
+.form-group .radio-btn label > .txt-wrap .tit + .desc{margin-top:4px;}
+.form-group .radio-btn label:has(input[type="radio"]:checked) > .txt-wrap span{color:#fff;}
 .progress-bar{position:relative;display:-webkit-flex;display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:36px;width:12rem;height:4px;}
 .progress-bar .progress-step{display:block;width:calc(100% / 4);height:100%;background-color:var(--bg-color-prime);border-radius:2px;}
 .progress-bar .progress-step.active{background-image:linear-gradient(to right, var(--bg-color-prime) 50%, var(--bg-color-default) 50%);background-size:200% 100%;background-position:100% 0;animation:slideFill 1s ease-out forwards;}
@@ -84,3 +104,9 @@
     from{background-position:100% 0;}
     to{background-position:0 0;}
 }
+/* btn-wrap */
+.team-grid{}
+.team-grid ul{}
+.team-grid ul .grid-btn{}
+.team-grid ul .grid-btn + .grid-btn{}
+.team-grid ul .grid-btn {}

@@ -38,8 +38,11 @@ input{border:none;}
     --replace-e0e0e0:#E2E8F0;
     --replace-cccccc:#CBD5E1;
     --replace-757575:#718096;
+    --replace-000000:#1A202C;
     /* color - point */
     --point-red:#F56565;
+    /* box-shadow */
+    --boxshadow-default:0px 4px 12px 0px rgba(26, 32, 44, 0.1);
     /* 레이아웃 */
     --layout-btm-height:0px;
 }
