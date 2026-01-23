@@ -1,10 +1,11 @@
 @charset "UTF-8";
 @import url(./layout.css);
 
-/* icons - icon */
-.ico-greeting{background:url("./../images/icon/color/icon_hello.svg");}
-.ico-baseball{background:url("./../images/icon/color/icon_baseball.svg");}
-.ico-medal{background:url("./../images/icon/color/icon_medal.svg");}
+/* *********************** icons - icon *********************** */
+.ico-greeting{background-image:url("./../images/icon/color/icon_hello.svg");}
+.ico-baseball{background-image:url("./../images/icon/color/icon_baseball.svg");}
+.ico-medal{background-image:url("./../images/icon/color/icon_medal.svg");}
+.ico-calendar{-webkit-mask-image:url("./../images/icon/mono/icon_calendar.svg");mask-image:url("./../images/icon/mono/icon_calendar.svg");-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-size:contain;mask-size:contain;-webkit-mask-position:center;mask-position:center;}
 /* icons - team */
 .ico-hanhwa{background:url(./../images/icon/team/icon_hanhwa.svg);}
 .ico-doosan{background:url(./../images/icon/team/icon_doosan.svg);}
@@ -17,7 +18,7 @@
 .ico-lotte{background:url(./../images/icon/team/icon_lotte.svg);}
 .ico-samsung{background:url(./../images/icon/team/icon_samsung.svg);}
 
-/* Header */
+/* *********************** Header *********************** */
 [class^=tit-d0]{display:-webkit-flex;display:flex;justify-content:center;align-items:center;gap:8px;color:var(--replace-333333);margin-bottom:12px;font-weight:700;}
 [class^=tit-d0] > [class^=ico-]{display:block;width:24px;height:24px;background-position:center;background-size:contain;background-repeat:no-repeat}
 .logo{display:block;width:100%;font:700 2.8rem/2.8rem "Pretendard Variable";font-style:italic;background:linear-gradient(135deg, #667eea 0%, #764ba2 100%);-webkit-background-clip:text;background-clip:text;color:transparent;}
@@ -31,9 +32,9 @@
 .container > .content > .header{position:fixed;top:0;display:-webkit-flex;display:flex;justify-content:space-between;align-items:center;padding:28px 20px;width:100%;background-color:#fff;box-shadow:var(--boxshadow-sm);z-index:1}
 .container > .content > .header > h1{font:700 1.8rem/1.8rem "Pretendard Variable";color:var(--replace-333333);}
 .container > .content > .header > h1 > em{color:var(--font-color-prime);}
-.container > .content > .header .side-menu{display:block;width:23px;height:29px;background:url("./../images/icon/mono/icon_hamburger.svg") center/contain no-repeat;border:none;}
+.container > .content > .header .menu-btn{display:block;width:23px;height:29px;background:url("./../images/icon/mono/icon_hamburger.svg") center/contain no-repeat;border:none;}
 
-/* content */
+/* *********************** content *********************** */
 .divider{display:block;width:100%;height:2px;margin:16px 0;background-color:var(--replace-e0e0e0);}
 .steps{width:100%;}
 .step-card{display:-webkit-flex;display:flex;flex-direction:column;gap:16px;width:100%;height:fit-content;}
@@ -55,6 +56,7 @@
 .info-wrap .section-tit{margin-bottom:8px;font:300 1.3rem/1.3rem "Pretendard Variable";color:var(--replace-666666);}
 .info-wrap .select-box{display:block;width:100%;border:2px solid var(--replace-e0e0e0);border-radius:8px;}
 .info-wrap > .msg-box{background-color:var(--bg-color-sheer);border-radius:8px;}
+.info-wrap > .msg-box [class^="ico-"]{width:1.8rem;height:1.8rem;background-color:var(--font-color-prime) !important;}
 .info-wrap .select-box + .msg-box{margin-top:8px;}
 .info-wrap .select-box .select{display:block;width:100%;height:100%;padding:12px 16px;text-align:left;background:none;border:none;}
 .info-wrap .select-box .select > span{position:relative;display:-webkit-flex;display:flex;justify-content:space-between;align-items:center;font:700 1.5rem/1.7rem "Pretendard Variable";color:var(--replace-000000);}
@@ -75,7 +77,7 @@
 .info-wrap .time-table li > dl .match-result.win{background-color:#DCFCE7;color:#16A34A;}
 .info-wrap .time-table li > dl .match-result.lose{background-color:#FEE2E2;color:#DC2626;}
 
-.nav-menu{position:fixed;bottom:0;width:100%;padding:0 20px 20px;background-color:#fff;border-top:1px solid var(--replace-f9f9f9);}
+.nav-menu{position:fixed;bottom:0;width:100%;padding:0 20px 20px;background-color:#fff;border-top:2px solid var(--replace-f9f9f9);}
 .nav-menu ul{display:-webkit-flex;display:flex;justify-content:center;align-items:center;width:100%;height:58px;}
 .nav-menu ul li{width:100%;height:100%;}
 .nav-menu ul li a{display:-webkit-flex;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:6px;width:100%;height:100%;text-decoration:none;}
@@ -94,7 +96,7 @@
 .msg-box dl dd{font:400 1.3rem/1.3rem "Pretendard Variable";color:var(--font-color-prime);word-break:keep-all;}
 .msg-box i + dl{margin-left:4px;}
 
-/* button */
+/* *********************** button *********************** */
 [class^=btn-comm-]{display:-webkit-flex;display:flex;justify-content:center;align-items:center;width:100%;background-color:#fff;border:none}
 [class^=btn-comm-].sm{height:51px;border-radius:12px;}
 [class^=btn-comm-] > span{word-break:keep-all;white-space:nowrap;}
@@ -125,7 +127,7 @@
 /* btn-wrap */
 .btn-wrap{display:-webkit-flex;display:flex;flex-direction:column;align-items:center;gap:16px;width:100%;}
 
-/* form-group */
+/* *********************** form-group *********************** */
 .form-group-wrap{display:block;width:100%;}
 .form-group{display:-webkit-flex;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;width:100%;height:fit-content;}
 .form-group + .form-group{margin-top:24px;}
@@ -232,6 +234,42 @@
 .option-btn-wrap > li .option > span{position:relative;display:-webkit-flex;display:flex;justify-content:space-between;align-items:center;font:400 1.6rem/1.6rem "Pretendard Variable";color:var(--replace-333333);}
 .option-btn-wrap > li .option[aria-selected="true"] > span:after{content:'';display:block;width:3rem;height:3rem;background-color:var(--bg-color-prime);-webkit-mask-image:url("./../images/icon/color/icon_checked.svg");mask-image:url("./../images/icon/color/icon_checked.svg");-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-size:2.2rem;mask-size:2.2rem;}
 
-/* modal */
+/* *********************** modal *********************** */
 .modal-tit{font:600 1.6rem/1.6rem "Pretendard Variable";color:var(--replace-333333);}
 .modal-tit + .close-md{display:block;padding:4px;width:18px;height:18px;background-color:transparent;background-image:url("./../images/icon/mono/icon_close.svg");background-repeat:no-repeat;background-size:contain;border:none;}
+
+/* *********************** side menu *********************** */
+.side-menu{display:none;position:fixed;left:0;top:0;right:0;width:100%;height:100%;background-color:rgba(0,0,0,0.6);z-index:100;}
+.side-menu.show{display:block;animation:showDim 0.5s ease-out forwards;}
+@keyframes showDim{
+    from{opacity:0;}
+    to{opacity:1;}
+}
+.side-menu .menu-wrap{position:absolute;top:0;right:0;bottom:0;width:80vw;background-color:#fff;}
+.side-menu.show .menu-wrap{transform:translateY(0);opacity:1;animation:slideUp 0.3s ease-out forwards;}
+@keyframes slideUp{
+    from{
+        transform:translateX(100%);
+        opacity:0;
+    }
+    to{
+        transform:translateX(0);
+        opacity:1;
+    }
+}
+.side-menu .menu-wrap .menu-content .menu-header{padding:20px;background-color:var(--bg-color-prime);}
+.side-menu .menu-wrap .menu-content .menu-header >div{font:700 2rem/2rem "Pretendard Variable";color:#fff;}
+.side-menu .menu-wrap .menu-content .menu-header .nickname{color:#fff;}
+.side-menu .menu-wrap .menu-content .menu-header .team-name + .nickname{margin-top:6px;font:700 1.4rem/1.4rem "Pretendard Variable";color:rgba(255,255,255,0.9);}
+.side-menu .menu-wrap .menu-content .menu-header .nickname > em{margin-right:4px;}
+.side-menu .menu-wrap .menu-content .menu-body{padding:20px;}
+.side-menu .menu-wrap .menu-content .menu-body ul{}
+.side-menu .menu-wrap .menu-content .menu-body ul li{}
+.side-menu .menu-wrap .menu-content .menu-body ul li a{display:-webkit-flex;display:flex;justify-content:flex-start;align-items:center;width:100%;padding:16px 0;text-decoration:none;color:var(--replace-000000);}
+.side-menu .menu-wrap .menu-content .menu-body ul li a > i{display:block;width:2rem;height:2rem;background-color:var(--bg-color-prime);-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-size:contain;mask-size:contain;-webkit-mask-position:center;mask-position:center;}
+.side-menu .menu-wrap .menu-content .menu-body ul li:nth-of-type(1) a > i{-webkit-mask-image:url("./../images/icon/mono/icon_baseball.svg");mask-image:url("./../images/icon/mono/icon_baseball.svg");}
+.side-menu .menu-wrap .menu-content .menu-body ul li:nth-of-type(2) a > i{-webkit-mask-image:url("./../images/icon/mono/icon_change.svg");mask-image:url("./../images/icon/mono/icon_change.svg");}
+.side-menu .menu-wrap .menu-content .menu-body ul li:nth-of-type(3) a > i{-webkit-mask-image:url("./../images/icon/mono/icon_email.svg");mask-image:url("./../images/icon/mono/icon_email.svg");}
+.side-menu .menu-wrap .menu-content .menu-body ul li a > span{margin-left:4px;font:500 1.5rem/1.5rem "Pretendard Variable";}
+.side-menu .menu-wrap .menu-content .menu-body ul li button{padding:16px 0;}
+.side-menu .menu-wrap .menu-content .menu-body ul li button > span{font:500 1.5rem/1.5rem "Pretendard Variable";color:var(--point-red);}
