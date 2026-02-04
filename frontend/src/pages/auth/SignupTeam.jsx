@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../../assets/css/content.css';
+import '../../assets/js/common.js';
 
 const SignupTeam = () => {
   const navigate = useNavigate();
@@ -32,7 +33,6 @@ const SignupTeam = () => {
   };
 
   return (
-    <div className="wrap">
       <div className="float-container">
         <div className="content">
           <div className="progress-bar">
@@ -50,40 +50,39 @@ const SignupTeam = () => {
           <div className="team-grid">
             <ul>
               {teams.map((team) => (
-                <li key={team.id}>
-                  <label htmlFor={team.id} className="team-btn">
-                    <i aria-hidden="true"></i>
-                    <input 
-                      type="radio" 
-                      className="team-btn" 
-                      id={team.id} 
-                      name="team"
-                      checked={selectedTeam === team.id}
-                      onChange={(e) => setSelectedTeam(e.target.value)}
-                      value={team.id}
-                    />
-                    <span className="team-name" style={{whiteSpace: 'pre-line'}}>
+                  <li key={team.id}>
+                    <label htmlFor={team.id} className="team-btn">
+                      <i aria-hidden="true"></i>
+                      <input
+                          type="radio"
+                          className="team-btn"
+                          id={team.id}
+                          name="team"
+                          checked={selectedTeam === team.id}
+                          onChange={(e) => setSelectedTeam(e.target.value)}
+                          value={team.id}
+                      />
+                      <span className="team-name" style={{whiteSpace: 'pre-line'}}>
                       {team.name}
                     </span>
-                  </label>
-                </li>
+                    </label>
+                  </li>
               ))}
             </ul>
           </div>
         </div>
 
         <footer className="footer">
-          <button 
-            className="btn-comm-prime" 
-            id="saveBtn" 
-            disabled={!selectedTeam}
-            onClick={handleSave}
+          <button
+              className="btn-comm-prime"
+              id="saveBtn"
+              disabled={!selectedTeam}
+              onClick={handleSave}
           >
             <span>저장</span>
           </button>
         </footer>
       </div>
-    </div>
   );
 };
 

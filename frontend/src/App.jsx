@@ -1,6 +1,6 @@
 import React from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
-import './App.css'
+// import './App.css' //0204_충돌로 인한 주석처리[이예림]
 
 // Pages - Auth
 import Login from './pages/auth/Login'

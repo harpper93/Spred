@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../../assets/css/content.css';
+import '../../assets/js/common.js';
 
 const SignupSport = () => {
   const navigate = useNavigate();
@@ -24,7 +25,6 @@ const SignupSport = () => {
   };
 
   return (
-    <div className="wrap">
       <div className="float-container">
         <div className="content">
           <div className="progress-bar">
@@ -51,13 +51,13 @@ const SignupSport = () => {
                   <span className="tit">야구</span>
                   <span className="desc">직관 기록을 남겨보세요</span>
                 </div>
-                <input 
-                  type="radio" 
-                  id="baseball" 
-                  name="sports" 
-                  value="baseball"
-                  checked={selectedSport === 'baseball'}
-                  onChange={(e) => setSelectedSport(e.target.value)}
+                <input
+                    type="radio"
+                    id="baseball"
+                    name="sports"
+                    value="baseball"
+                    checked={selectedSport === 'baseball'}
+                    onChange={(e) => setSelectedSport(e.target.value)}
                 />
               </label>
             </div>
@@ -72,13 +72,13 @@ const SignupSport = () => {
                   <span className="tit">기타</span>
                   <span className="desc">다른 스포츠 종목</span>
                 </div>
-                <input 
-                  type="radio" 
-                  id="other" 
-                  name="sports" 
-                  value="other"
-                  checked={selectedSport === 'other'}
-                  onChange={(e) => setSelectedSport(e.target.value)}
+                <input
+                    type="radio"
+                    id="other"
+                    name="sports"
+                    value="other"
+                    checked={selectedSport === 'other'}
+                    onChange={(e) => setSelectedSport(e.target.value)}
                 />
               </label>
             </div>
@@ -90,17 +90,16 @@ const SignupSport = () => {
         </div>
 
         <footer className="footer">
-          <button 
-            className="btn-comm-prime" 
-            id="nextBtn" 
-            disabled={!selectedSport}
-            onClick={handleNext}
+          <button
+              className="btn-comm-prime"
+              id="nextBtn"
+              disabled={!selectedSport}
+              onClick={handleNext}
           >
             <span>다음</span>
           </button>
         </footer>
       </div>
-    </div>
   );
 };
 

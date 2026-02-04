@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../../assets/css/content.css';
+import '../../assets/js/common.js';
 
 const SignupOAuth = () => {
   const navigate = useNavigate();
@@ -21,7 +22,6 @@ const SignupOAuth = () => {
   };
 
   return (
-    <div className="wrap">
       <div className="float-container">
         <div className="content center">
           <div className="progress-bar">
@@ -60,7 +60,6 @@ const SignupOAuth = () => {
           </div>
         </div>
       </div>
-    </div>
   );
 };
 
